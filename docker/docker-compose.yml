@@ -1,0 +1,57 @@
+version: '3'
+
+services:
+
+  apache:
+    image: web-security-study/apache
+    container_name: web-security-study-apache
+    build:
+      context: "./apache"
+      dockerfile: "Dockerfile"
+    ports:
+     - "80:80"
+     - "443:443"
+    restart: always
+    volumes:
+     - ./apache/conf.d:/etc/apache2/conf.d
+     - ./apache/ssl:/etc/apache2/ssl
+     - ./apache/logs:/var/log/apache2
+     - ..:/var/www/html
+
+  php:
+    image: web-security-study/php
+    container_name: web-security-study-php
+    build:
+      context: "./php"
+      dockerfile: "Dockerfile"
+    restart: always
+    environment:
+     - TZ=Asia/Tokyo
+    volumes:
+     - ./php/logs:/var/log/php
+     - ./php/php.ini:/usr/local/etc/php/php.ini
+     - ..:/var/www/html
+
+  mysql:
+    image: web-security-study/mysql
+    container_name: web-security-study-mysql
+    build:
+      context: "./mysql"
+      dockerfile: "Dockerfile"
+    environment:
+      MYSQL_DATABASE: web-security-study
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: password
+      TZ: Asia/Tokyo
+    ports:
+     - "3306:3306"
+    restart: always
+    volumes:
+      - db-store:/var/lib/mysql
+      - ./mysql/logs:/var/log/mysql
+      - ./mysql/conf:/etc/mysql/conf.d
+      - ./mysql/initdb.d:/docker-entrypoint-initdb.d
+
+volumes:
+  db-store:
