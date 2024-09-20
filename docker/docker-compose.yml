@@ -39,7 +39,7 @@ services:
       context: "./mysql"
       dockerfile: "Dockerfile"
     environment:
-      MYSQL_DATABASE: web-security-study
+      MYSQL_DATABASE: web_security_study
       MYSQL_USER: user
       MYSQL_PASSWORD: password
       MYSQL_ROOT_PASSWORD: password
