@@ -1,7 +1,6 @@
 🌙 web-security-study
 ====
 
-[![isystk](https://circleci.com/gh/isystk/web-security-study.svg?style=svg)](https://circleci.com/gh/circleci/circleci-docs)
 ![GitHub issues](https://img.shields.io/github/issues/isystk/web-security-study)
 ![GitHub forks](https://img.shields.io/github/forks/isystk/web-security-study)
 ![GitHub stars](https://img.shields.io/github/stars/isystk/web-security-study)
@@ -13,12 +12,12 @@ Webセキュリティを学習する為のサンプルアプリケーション�
 
 ## 🌐 Demo
 
-#### ■ フロント画面（React）
-
-https://laraec.isystk.com/
-
-![デモ画面](./demo.png "デモ画面")
-
+- XSS(クロスサイトスクリプティング)
+- CSRF(クロスサイトリクエストフォージェリ)
+- SQLインジェクション
+- SSI(サーバーサイドインクルード)
+- セッションハイジャック
+- オープンリダイレクト
 
 ## 📦 ディレクトリ構造
 

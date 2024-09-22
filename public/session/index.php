@@ -20,7 +20,7 @@ if (isset($_SESSION['user_id'])) {
         }
         input[type="text"],
         input[type="password"] {
-            width: 80%;
+            width: 30%;
             padding: 10px;
             margin: 10px 0;
         }
@@ -43,6 +43,7 @@ if (isset($_SESSION['user_id'])) {
     </style>
 </head>
 <body>
+<p><a href="/">戻る</a></p>
 <h1>セッションハイジャックの脆弱性があるフォーム</h1>
 <div>
     説明

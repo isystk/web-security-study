@@ -54,6 +54,7 @@ $messages = $sql->fetchAll();
     </style>
 </head>
 <body>
+<p><a href="/">戻る</a></p>
 <h1>SQLインジェクションの脆弱性があるフォーム</h1>
 <div>
     説明

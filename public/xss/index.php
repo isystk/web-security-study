@@ -42,6 +42,7 @@ if (isset($_POST['message'])) {
     </style>
 </head>
 <body>
+    <p><a href="/">戻る</a></p>
     <h1>XSSの脆弱性があるフォーム</h1>
     <div>
         説明
