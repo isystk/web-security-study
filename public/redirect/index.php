@@ -13,7 +13,7 @@ if (isset($_POST['url'])) {
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>オープンリダイレクトデモフォーム</title>
+    <title>オープンリダイレクトデモ</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -44,7 +44,7 @@ if (isset($_POST['url'])) {
 </head>
 <body>
     <p><a href="/">戻る</a></p>
-    <h1>オープンリダイレクトの脆弱性があるフォーム</h1>
+    <h1>オープンリダイレクトの脆弱性があるサイト</h1>
     <div>
         説明
         <pre>

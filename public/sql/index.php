@@ -24,7 +24,7 @@ $messages = $sql->fetchAll();
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>SQLインジェクションデモフォーム</title>
+    <title>SQLインジェクションデモ</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -55,7 +55,7 @@ $messages = $sql->fetchAll();
 </head>
 <body>
 <p><a href="/">戻る</a></p>
-<h1>SQLインジェクションの脆弱性があるフォーム</h1>
+<h1>SQLインジェクションの脆弱性があるサイト</h1>
 <div>
     説明
     <pre>

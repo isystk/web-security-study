@@ -29,7 +29,7 @@ $messages = $sql->fetchAll();
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>CSRFデモフォーム</title>
+    <title>CSRFデモ</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -60,7 +60,7 @@ $messages = $sql->fetchAll();
 </head>
 <body>
 <p><a href="/">戻る</a></p>
-<h1>CSRFの脆弱性があるフォーム</h1>
+<h1>CSRF</h1>
 <div>
     説明
     <pre>

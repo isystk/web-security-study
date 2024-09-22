@@ -12,7 +12,7 @@ if (isset($_POST['message'])) {
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>XSSデモフォーム</title>
+    <title>XSSデモ</title>
     <style>
         body {
             font-family: Arial, sans-serif;
