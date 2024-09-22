@@ -12,6 +12,18 @@
 </head>
 <body>
 <h2>悪意のない被害者ページ</h2>
-<a href="#">ログインはこちら</a>
+<form method="post" action="#" id="form">
+    <label for="message">メッセージを入力してください:</label><br>
+    <input type="text" id="message" name="message"><br><br>
+    <button type="submit">送信</button>
+</form>
+<script>
+    const form = document.getElementById('form');
+    form.addEventListener('submit', (e) => {
+        e.preventDefault()
+        const messageValue = form.querySelector('input[name="message"]').value;
+        alert(`投稿しました。 ${messageValue}`);
+    });
+</script>
 </body>
 </html>

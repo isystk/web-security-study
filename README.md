@@ -80,7 +80,9 @@ $ ./dc.sh mysql login
 
 | プロジェクト                                                                                                  | 概要                               |
 |:------------------------------------------------------------------------------------------------------------|:---------------------------------|
-| [Laravel11公式ドキュメント](https://readouble.com/laravel/11.x/ja/releases.html)                               | Laravel11公式ドキュメントです。             |
+| [安全なウェブサイトの作り方](https://www.ipa.go.jp/security/vuln/websecurity/about.html)                               | 安全なウェブサイトの作り方         |
+| [体系的に学ぶ 安全なWebアプリケーションの作り方 脆弱性が生まれる原理と対策の実践](https://www.amazon.co.jp/gp/product/4797361190/ref=ox_sc_act_title_1?smid=AF3AGBLY4CLDQ&psc=1)                               | 体系的に学ぶ 安全なWebアプリケーションの作り方 脆弱性が生まれる原理と対策の実践         |
+| [「安全なWebアプリケーションの作り方」を読んだ所感など](https://qiita.com/Yajima_t/items/08beb4cb8c12bcc92693)                               | 「安全なWebアプリケーションの作り方」を読んだ所感など         |
 
 
 ## 🎫 Licence
