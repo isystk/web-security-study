@@ -3,13 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <title>悪意のあるページ</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+        input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ddd;
+            white-space: pre-line;
+        }
+    </style>
 </head>
 <body>
-<h1>悪意のある操作</h1>
+<h1>悪意のあるページ</h1>
 
 <!-- ユーザーに気づかれないように、自動的に送信されるフォーム -->
 <form id="csrf_attack_form" action="./submit.php" method="POST">
-    <label for="message">10秒後自動でメッセージが投稿されます:</label><br>
+    <label for="message">10秒後自動でメッセージが投稿される<br>(通常はユーザーに気づかれないように自動的に送信される)</label><br>
     <input 
         type="text" 
         id="message"

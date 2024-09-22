@@ -32,6 +32,7 @@
             background-color: #f4f4f4;
             padding: 10px;
             border: 1px solid #ddd;
+            white-space: pre-line;
         }
     </style>
 </head>

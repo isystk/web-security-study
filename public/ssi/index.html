@@ -3,10 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <title>SSIデモフォーム</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+        input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ddd;
+            white-space: pre-line;
+        }
+    </style>
 </head>
 <body>
 <h1>SSIの脆弱性があるフォーム</h1>
-
+<div>
+    説明
+    <pre>
+        このサイトは、SSI(サーバーサイドインクルード)の脆弱性がある為、<br/>悪意のあるユーザーによって、以下のような攻撃が可能です。
+        <br/>
+        ・サーバー内部でコマンドを実行させる例
+        <code>&lt;!--#exec cmd=&quot;ls -la&quot; --&gt;</code>
+    </pre>
+</div>
 <h2>以下にexecコマンドが実行された結果が表示される:</h2>
 <pre>
 <!--#exec cmd="ls -la" -->

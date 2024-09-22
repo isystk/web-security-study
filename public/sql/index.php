@@ -6,22 +6,17 @@ include '../database.php';
 // セッションを開始
 session_start();
 
-// CSRFトークンを生成
-if (empty($_SESSION['_token'])) {
-    $_SESSION['_token'] = bin2hex(random_bytes(32));
+$message = null;
+if (isset($_POST['message']) && trim($_POST['message']) !== '') {
+    $message = trim($_POST['message']);
 }
-
-// 削除処理
-if (isset($_GET['delete_id']) && !empty($_GET['delete_id'])) {
-    $delete_id = $_GET['delete_id'];
-    // 削除クエリを実行
-    $stmt = $pdo->prepare("DELETE FROM messages WHERE id = :delete_id");
-    $stmt->execute(['delete_id' => $delete_id]);
-    echo "メッセージが削除されました。";
+$andWhere = '';
+if (isset($message)) {
+    $andWhere = 'and message ="' . $message . '"';
 }
 
 // 登録されているメッセージを取得
-$sql = $pdo->query("SELECT id, message, created_at FROM messages where is_private = 0 ORDER BY created_at DESC");
+$sql = $pdo->query("SELECT id, message, created_at FROM messages where is_private = 0 $andWhere ORDER BY created_at DESC");
 $messages = $sql->fetchAll();
 
 ?>
@@ -29,7 +24,7 @@ $messages = $sql->fetchAll();
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>CSRFデモフォーム</title>
+    <title>SQLインジェクションデモフォーム</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -59,21 +54,20 @@ $messages = $sql->fetchAll();
     </style>
 </head>
 <body>
-<h1>CSRFの脆弱性があるフォーム</h1>
+<h1>SQLインジェクションの脆弱性があるフォーム</h1>
 <div>
     説明
     <pre>
-        このサイトは、CSRF(クロスサイトリクエストフォージェリ)の脆弱性がある為、<br/>悪意のあるユーザーによって、以下のような攻撃が可能です。
+        このサイトは、SQLインジェクションの脆弱性がある為、<br/>悪意のあるユーザーによって、以下のような攻撃が可能です。
         <br/>
-        <a href="./evil.html">こちら</a>の外部ページにアクセスすることで、<br/>このフォームに悪意のあるメッセージを送信させることが可能です。
+        ・意図しない条件で検索ができてしまう
+        <code><?php echo htmlspecialchars('" or "a" = "a'); ?></code>
     </pre>
 </div>
-<form action="submit.php" method="POST">
-    <label for="message">メッセージを入力してください:</label><br>
-    <input type="text" id="message" name="message"><br><br>
+<form action="index.php" method="POST">
+    <label for="message">検索するメッセージを入力してください:</label><br>
+    <input type="text" id="message" name="message" value="<?php echo $message; ?>"><br><br>
 
-    <!-- CSRFトークンをフォームに埋め込む -->
-    <input type="hidden" name="_token" value="<?php echo $_SESSION['_token']; ?>">
     <button type="submit">送信</button>
 
     <h2>メッセージ一覧</h2>
@@ -82,7 +76,6 @@ $messages = $sql->fetchAll();
             <th>ID</th>
             <th>メッセージ</th>
             <th>作成日時</th>
-            <th>削除</th>
         </tr>
         <?php
         // メッセージ一覧を表示
@@ -92,8 +85,6 @@ $messages = $sql->fetchAll();
                 echo "<td>" . $message['id'] . "</td>";
                 echo "<td>" . htmlspecialchars($message['message'], ENT_QUOTES, 'UTF-8') . "</td>";
                 echo "<td>" . $message['created_at'] . "</td>";
-                // 削除リンク（CSRF保護が必要な場合はトークンも追加）
-                echo "<td><a href='index.php?delete_id=" . $message['id'] . "' onclick=\"return confirm('本当に削除しますか？');\">削除</a></td>";
                 echo "</tr>";
             }
         } else {
