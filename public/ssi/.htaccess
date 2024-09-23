@@ -1,3 +1,2 @@
 Options +Includes
-AddType text/html .html
-AddOutputFilter INCLUDES .html
+AddOutputFilter INCLUDES .php

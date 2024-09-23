@@ -54,10 +54,13 @@ case ${1} in
         popd
     ;;
 
-    apache)
+    web)
       case ${2} in
+          login)
+              $DOCKER_COMPOSE exec web /bin/bash
+          ;;
           restart)
-              $DOCKER_COMPOSE restart apache
+              $DOCKER_COMPOSE restart web
           ;;
           *)
               usage
@@ -82,18 +85,7 @@ case ${1} in
           ;;
       esac
     ;;
-
-    php)
-      case ${2} in
-          login)
-              $DOCKER_COMPOSE exec php /bin/bash
-          ;;
-          *)
-              usage
-          ;;
-      esac
-    ;;
-
+  
     help|--help|-h)
         usage
     ;;
