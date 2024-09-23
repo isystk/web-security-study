@@ -25,17 +25,13 @@ Webセキュリティを学習する為のサンプルアプリケーション�
 ```
 .
 ├── docker （各種Daemon）
-│   │
-│   ├── apache （Webサーバー）
-│   │   ├── conf.d (apacheの設定ファイル)
-│   │   └── logs （apacheのログ）
-│   ├── mysql （DBサーバー）
-│   │   ├── conf.d (mysqlの設定ファイル)
-│   │   ├── initdb.d （mysqlの初期DDL）
-│   │   └── logs （mysqlのログ）
-│   └── php （PHP-FRM）
-│       └── logs （phpのログ）
-│
+│   ├── web （Webサーバー）
+│   │   ├── config (設定ファイル)
+│   │   └── logs （ログ）
+│   └── mysql （DBサーバー）
+│       ├── conf.d (mysqlの設定ファイル)
+│       ├── initdb.d （mysqlの初期DDL）
+│       └── logs （mysqlのログ）
 ├── public
 └── dc.sh （Dockerの起動用スクリプト）
 ```
@@ -51,11 +47,11 @@ Options:
   init                     Dockerコンテナ・イメージ・生成ファイルの状態を初期化します。
   start                    すべてのDaemonを起動します。
   stop                     すべてのDaemonを停止します。
-  apache restart           Apacheを再起動します。
+  web login                Webサーバーにログインします。
+  web restart              Webサーバーを再起動します。
   mysql login              MySQLデータベースにログインします。
   mysql export <PAHT>      MySQLデータベースのdumpファイルをエクスポートします。
   mysql import <PAHT>      MySQLデータベースにdumpファイルをインポートします。
-  php login                PHP-FPMのサーバーにログインします。
   --version, -v     バージョンを表示します。
   --help, -h        ヘルプを表示します。
 ```
