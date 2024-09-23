@@ -15,11 +15,11 @@ Options:
   init                     Dockerコンテナ・イメージ・生成ファイルの状態を初期化します。
   start                    すべてのDaemonを起動します。
   stop                     すべてのDaemonを停止します。
-  apache restart           Apacheを再起動します。
+  web login                Webサーバーにログインします。
+  web restart              Webサーバーを再起動します。
   mysql login              MySQLデータベースにログインします。
   mysql export <PAHT>      MySQLデータベースのdumpファイルをエクスポートします。
   mysql import <PAHT>      MySQLデータベースにdumpファイルをインポートします。
-  php login                PHP-FPMのサーバーにログインします。
   --version, -v     バージョンを表示します。
   --help, -h        ヘルプを表示します。
 EOF
